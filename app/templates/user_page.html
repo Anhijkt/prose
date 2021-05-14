@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ user.nickname }}</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+</head>
+<body>
+	<header>
+		<div class="jumbotron">
+			<h1>{{ user.username }}'s page</h1>
+			<a href="/"><p>Back</p></a>
+		</div>
+	</header>
+	{% if is_user_post %}
+	<form action="/user/{{user.id}}" method="POST">
+		{{ form.hidden_tag() }}
+		{{ form.text.label }}
+		{{ form.text }}
+		{{ form.submit() }}
+	</form>
+	{% endif %}
+	{% for post in posts %}
+		<div class="container">
+			<a href="/post/{{post.post_id}}"><h3>{{ post.post_id }}</h3></a>
+			<h5> at {{ post.creation_date }}</h5>
+			<p>{{ post.text }}</p>
+			<hr>
+		</div>
+	{% endfor %}
+</body>
+</html>

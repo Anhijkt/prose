@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% if action == "login" %}Log in{% endif %}
+			{% if action == "registrate" %}Registrate{% endif %}
+	</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+</head>
+<body>
+	{% if action == "login" %}
+		<h1>Log in, please</h1>
+		<form action="/auth/login" method="POST">
+	{% endif %}
+	{% if action == "registrate" %}
+		<h1>Registrate, please</h1>
+		<form action="/auth/registrate" method="POST">
+	{% endif %}
+	{{ form.hidden_tag() }}
+	{% if action == "registrate" %}
+		{{ form.username.label }}
+		{{ form.username }}<br>
+	{% endif %}
+	{{ form.nickname.label }}
+	{{ form.nickname }}<br>
+	{{ form.password.label }}
+	{{ form.password }}<br>
+	{{ form.submit() }}
+	</form>
+</body>
+</html>
