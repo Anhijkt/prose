@@ -1,6 +1,7 @@
 # prose
 Prose is the simple twitter clone build with Flask
-In prose you can keep your blog, see other people's blog,chat with other peoples
+In prose you can keep your blog, see other people's blog,
+chat with other people's
 
 ## Running localy
     $ pip3 install -r requirements.txt
